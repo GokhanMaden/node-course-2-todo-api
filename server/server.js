@@ -15,12 +15,19 @@ app.post("/todos", (req, res) => {
     completed: req.body.completed,
     completedAt: new Date()
   });
-
   
   todo.save().then((doc) => {
     res.status(200).send(doc);
   }, (err) => {
     res.status(400).send(err);
+  })
+});
+
+app.get("/todos", (req, res) => {
+  Todo.find().then((todos) => {
+    res.send({todos})
+  }, (err) => {
+    return res.status(400).send(err);
   })
 });
 
