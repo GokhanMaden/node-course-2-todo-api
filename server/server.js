@@ -20,6 +20,7 @@ mongoose.connect("mongodb://localhost:27017/TodoApp", { useNewUrlParser: true })
 //   }
 // });
 
+
 var User = mongoose.model("User", {
   name: {
     type: String,
